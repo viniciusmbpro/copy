@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Copiador de Dados</title>
+    <script>
+        window.addEventListener('load', (event) => {
+            const params = new URLSearchParams(window.location.search);
+            const data = params.get('data');
+
+            if (data) {
+                navigator.clipboard.writeText(data)
+                    .then(() => {
+                        console.log('Dados copiados!');
+                        // Redireciona para o AppSheet antes de fechar
+                        // window.location.href = 'URL_DO_APPSHEET';
+                        window.close();
+                    })
+                    .catch(err => console.error('Erro ao copiar:', err));
+            }
+        });
+    </script>
+</head>
+<body>
+    <h2>Copiando dados...</h2>
+</body>
+</html>
